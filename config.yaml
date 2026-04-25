@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+providers:
+  - name: qwen
+    baseurl: https://dashscope.aliyuncs.com/compatible-mode/v1
+    api_key: ${QWEN_API_KEY}
+
+fallback:
+  # 自定义降级链(可选)
+  custom:
+#    - claude-opus-4.6
+#    - claude-opus-4.5
+#    - claude-sonnet-4.6
+#    - deepseek-v4
+
+  # 跨家族降级顺序(可选,默认按 providers 顺序)
+  global_priority:
+#    - anthropic
+#    - deepseek
+#    - qwen
+
+probe:
+  interval: 60s
+  timeout: 10s
+  cache_ttl: 120s
